@@ -1,1 +1,10 @@
-target
+target	
+.project
+.settings/
+server/.classpath
+server/.project
+server/.settings/
+webapp/.classpath
+webapp/.project
+webapp/.settings/
+server/target
