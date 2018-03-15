@@ -33,7 +33,7 @@ pipeline {
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh "scp -v -i /home/lukas/Workspace/study/jenkins-demo.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat8/webapps"
+                        sh "scp -v -oStrictHostKeyChecking=no -i /home/lukas/Workspace/study/jenkins-demo.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat8/webapps"
                     }
                 }
             }
