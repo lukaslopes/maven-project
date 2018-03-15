@@ -25,6 +25,12 @@ pipeline {
 
         stage ('Deployments'){
             parallel{
+                stage ('Analysis'){
+                    steps{
+                        build job: 'static analysis'
+                    }
+                }
+
                 stage ('Deploy to Staging'){
                     steps {
                         sh "scp -oStrictHostKeyChecking=no -i /home/lukas/Workspace/study/jenkins-demo.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat8/webapps"
